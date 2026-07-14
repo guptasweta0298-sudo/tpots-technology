@@ -274,6 +274,22 @@ function alumni_intro_callback($post){
 
     </td>
 </tr>
+  <p>
+    <label><strong>Intro Section Background Color</strong></label><br>
+
+    <?php
+    $bg_color = get_post_meta($post->ID, 'news_bg_color', true);
+    ?>
+
+    <input
+        type="text"
+        id="news_bg_color"
+        name="news_bg_color"
+        value="<?php echo esc_attr($bg_color); ?>"
+        class="color-picker"
+        data-default-color="#f5f3ef">
+</p>
+
 
 </table>
 
@@ -306,6 +322,15 @@ function alumni_intro_save_meta($post_id){
 
     update_post_meta($post_id,'intro_btn_target',isset($_POST['intro_btn_target']) ? 1 : 0);
 
+    if(isset($_POST['news_bg_color'])){
+
+        update_post_meta(
+            $post_id,
+            'news_bg_color',
+            sanitize_hex_color($_POST['news_bg_color'])
+        );
+
+    }
 }
 add_action('save_post','alumni_intro_save_meta');
 

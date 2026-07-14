@@ -610,33 +610,58 @@ if (!empty($selected_ctas)) :
         <div class="rb-block-container">
             <h2><?php echo $new_title; ?></h2>
             <div class="rb-cardgroup sm:grid-cols-2">
+
+            <?php
+            $count=1;
+              $args = array(
+                'posts_per_page' => 4,
+                'order'            => 'DESC',
+                'post_type'        => 'post',
+                'post_status'      => 'publish',
+                'suppress_filters' => true,
+                );
+              query_posts($args);
+              if ( have_posts() ) : while (have_posts()) : the_post();
+              if($count==1){
+            ?>
               <section class="rb-card bg-white rb-card--overlay-link rb-news-homepage--main rb-card--horizontal rb-card">
                   <div class="rb-card__inner">
                     <picture class="rb-picture  rb-card__header">
-                        <img class="rb-picture__image" src="<?php echo get_template_directory_uri(); ?>/img/S-Square.jpg" alt="" loading="lazy">
-                    </picture>
+                      <?php if ( has_post_thumbnail() ) { ?>
+                      <img src="<?php the_post_thumbnail_url('');?>" class="rb-picture__image" alt="<?php the_title(); ?>" loading="lazy">
+                      <?php } else { ?>
+                      <img src="<?php echo bloginfo('template_directory');?>/assets/img/dummy-min.jpg" class="rb-picture__image" alt="<?php the_title(); ?>" loading="lazy">
+                      <?php } ?>
+                        </picture>
                     <div class="rb-card__content">
-                        <div class="rb-card__meta">26 November 2025</div>
+                        <div class="rb-card__meta"><?php the_time('d M Y'); ?></div>
                         <h3 class="rb-card__title">
-                          <a href="#">Nominate for the 2026 Alumni Awards: Hannah Merchant on why it matters</a>
+                          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
                         <p class="rb-card__text">
-                          Hannah Merchant (BA Hons English Literature 2022) was recognised at the 2025 University of Liverpool Alumni Awards for her outstanding commitment to equity, inclusion and international impact.
+                          <?php the_content(); ?>
                         </p>
                     </div>
                   </div>
               </section>
+              <?php }else{ ?>
               <section class="rb-card bg-white rb-card--overlay-link rb-card__content--centered rb-card">
                   <div class="rb-card__inner">
                     <div class="rb-card__content">
-                        <div class="rb-card__meta">18 November 2025</div>
+                        <div class="rb-card__meta"><?php the_time('d M Y'); ?></div>
                         <h3 class="rb-card__title">
-                          <a href="#">Careers and alumni support for graduates</a>
+                          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
                     </div>
                   </div>
               </section>
-              <section class="rb-card bg-white rb-card--overlay-link rb-card__content--centered rb-card">
+              <?php
+              }
+              $count++;
+              endwhile;
+              endif;
+              ?>
+              <!-- <section class="rb-card bg-white rb-card--overlay-link rb-card__content--centered rb-card">
                   <div class="rb-card__inner">
                     <div class="rb-card__content">
                         <div class="rb-card__meta">22 November 2025</div>
@@ -655,7 +680,7 @@ if (!empty($selected_ctas)) :
                         </h3>
                     </div>
                   </div>
-              </section>
+              </section> -->
             </div>
         </div>
       </div>
