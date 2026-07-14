@@ -545,12 +545,13 @@ if (!empty($selected_ctas)) :
         </div>
       </dialog>
       <?php
-      $section_image = get_post_meta($post->ID,'academic_image', true);
-      $section_title = get_post_meta($post->ID, 'academic_title', true);
-      $section_description = get_post_meta($post->ID, 'academic_description', true);
-      $button_text = get_post_meta($post->ID, 'academic_button_text', true);
-      $button_url = get_post_meta($post->ID, 'academic_button_url', true);
-      $button_target = get_post_meta($post->ID, 'academic_button_target', true);
+      $image_id = get_post_meta(get_the_ID(), 'academic_image', true);
+      $academic_image = wp_get_attachment_image_url($image_id, 'full');
+      $academic_title = get_post_meta($post->ID, 'academic_title', true);
+      $academic_description = get_post_meta($post->ID, 'academic_description', true);
+      $academic_text = get_post_meta($post->ID, 'academic_button_text', true);
+      $academic_url = get_post_meta($post->ID, 'academic_button_url', true);
+      $academic_target = get_post_meta($post->ID, 'academic_button_target', true);
     ?>
       <section class="rb-block-cover bg-white">
         <div class="rb-block-container">
