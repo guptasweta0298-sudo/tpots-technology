@@ -601,13 +601,14 @@ if (!empty($selected_ctas)) :
       </section>
       <?php
         $bg_color = get_post_meta(get_the_ID(), 'news_bg_color', true);
+        $new_title = get_post_meta(get_the_ID(), 'news_title', true);
 
         ?>
 
 
       <div class="rb-block-cover bg-rb--color--light rb-news-homepage" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(237 237 233)'); ?>;">
         <div class="rb-block-container">
-            <h2>Latest news</h2>
+            <h2><?php echo $new_title; ?></h2>
             <div class="rb-cardgroup sm:grid-cols-2">
               <section class="rb-card bg-white rb-card--overlay-link rb-news-homepage--main rb-card--horizontal rb-card">
                   <div class="rb-card__inner">
