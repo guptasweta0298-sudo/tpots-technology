@@ -1258,9 +1258,7 @@ Open in New Tab
 <p>
     <label><strong>Academic Section Background Color</strong></label><br>
 
-    <?php
-    $bg_color = get_post_meta($post->ID, 'academic_bg_color', true);
-    ?>
+  
 
     <input
         type="text"
