@@ -131,18 +131,17 @@
       </section>
       
       <?php
+       $bg_color = get_post_meta($post->ID, 'stat_bg_color', true);
+        $selected_statistics = get_post_meta(get_the_ID(), 'selected_statistics', true);
 
+        if (!is_array($selected_statistics)) {
+            $selected_statistics = array();
+        }
 
-$selected_statistics = get_post_meta(get_the_ID(), 'selected_statistics', true);
+        if (!empty($selected_statistics)) :
+        ?>
 
-if (!is_array($selected_statistics)) {
-    $selected_statistics = array();
-}
-
-if (!empty($selected_statistics)) :
-?>
-
-<div class="rb-block-cover rb-block-cover--py-0 alumni-countr-box text-white bg-rb--color--blue <?php echo esc_attr($section_class); ?>">
+<div class="rb-block-cover rb-block-cover--py-0 alumni-countr-box text-white bg-rb--color--blue <?php echo esc_attr($section_class); ?>" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(33 43 88)'); ?>;">
     <div class="rb-block-container">
 
 
@@ -186,10 +185,11 @@ if (!empty($selected_statistics)) :
 
 <?php endif; ?>
 <?php
+          $bg_color = get_post_meta($post->ID, 'benefit_bg_color', true);
           $benefit_title = get_post_meta($post->ID,'benefits_title',true);
           $benefit_description = get_post_meta($post->ID,'benefits_description',true);
       ?>
-      <section class="rb-block-cover">
+      <section class="rb-block-cover" style="background-color: <?php echo esc_attr($bg_color ?: '#f5f3ef'); ?>;">
         <div class="rb-block-container">
             <h2><?php echo esc_html($benefit_title); ?></h2>
             <div class="rb-content-flow">
@@ -274,6 +274,7 @@ if (!empty($selected_statistics)) :
       </section>
       <?php
 // Get the selected CTA IDs for this page (from the meta box we built earlier)
+$bg_color = get_post_meta($post->ID, 'cta_bg_color', true);
 $selected_ctas = get_post_meta(get_the_ID(), 'selected_cta', true);
 
 if (!is_array($selected_ctas)) {
@@ -302,7 +303,7 @@ if (!empty($selected_ctas)) :
 
        
         ?>
-        <section class="rb-block-cover alumni-singup-banner">
+        <section class="rb-block-cover alumni-singup-banner" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(255 209 0)'); ?>;">
         <section class="alumni-signup-banner rb-banner">
             <div class="rb-block-container bg-rb--color--yellow">
                 <div class="rb-banner__inner">
@@ -554,8 +555,10 @@ if (!empty($selected_ctas)) :
       $academic_button_text = get_post_meta($post->ID, 'academic_button_text', true);
       $academic_url = get_post_meta($post->ID, 'academic_button_url', true);
       $academic_target = get_post_meta($post->ID, 'academic_button_target', true);
+           $bg_color = get_post_meta($post->ID, 'academic_bg_color', true);
+
     ?>
-      <section class="rb-block-cover bg-white">
+      <section class="rb-block-cover bg-white" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(255 255 255)'); ?>;">
         <div class="rb-block-container">
           <div class="rb-top-level-page rb-content-flow up-news-alumni">
             <article>

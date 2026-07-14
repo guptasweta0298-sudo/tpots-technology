@@ -1253,6 +1253,22 @@ Open in New Tab
 </td>
 
 </tr>
+<p>
+    <label><strong>Academic Section Background Color</strong></label><br>
+
+    <?php
+    $bg_color = get_post_meta($post->ID, 'academic_bg_color', true);
+    ?>
+
+    <input
+        type="text"
+        id="academic_bg_color"
+        name="academic_bg_color"
+        value="<?php echo esc_attr($bg_color); ?>"
+        class="color-picker"
+        data-default-color="#f5f3ef">
+</p>
+
 
 </table>
 
@@ -1469,6 +1485,15 @@ function alumni_academic_save($post_id){
     );
 
 }
+if(isset($_POST['academic_bg_color'])){
+
+        update_post_meta(
+            $post_id,
+            'academic_bg_color',
+            sanitize_hex_color($_POST['academic_bg_color'])
+        );
+
+    }
 
 add_action(
     'save_post',
