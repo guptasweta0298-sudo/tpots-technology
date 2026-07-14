@@ -577,7 +577,7 @@ if (!empty($selected_ctas)) :
                 <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
                 <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
                 <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
-                <a class="uol-gallery-mode-btn uol-network-btn" href="<?php echo $academic_url; ?>" <?php echo $academic_target? 'target="_blank" rel="noopener noreferrer"' : ''; ?> ?>>
+                <a class="uol-gallery-mode-btn uol-network-btn" href="<?php echo $academic_url; ?>" <?php echo $academic_target? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
                  <?php echo $academic_button_text; ?>
                 </a>
               </div>
