@@ -278,7 +278,7 @@ function alumni_intro_callback($post){
     <label><strong>Intro Section Background Color</strong></label><br>
 
     <?php
-    $bg_color = get_post_meta($post->ID, 'news_bg_color', true);
+    $bg_color = get_post_meta($post->ID, 'intro_bg_color', true);
     ?>
 
     <input
