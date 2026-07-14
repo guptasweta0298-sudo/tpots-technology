@@ -1098,6 +1098,8 @@ function alumni_academic_callback($post){
         'academic_items',
         true
     );
+ $bg_color = get_post_meta($post->ID, 'academic_bg_color', true);
+
 
     if(!is_array($items) || empty($items)){
 
