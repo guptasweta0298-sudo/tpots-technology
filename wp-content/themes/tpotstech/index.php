@@ -49,7 +49,7 @@
             <div class="rb-backdrop__heading">
               <hgroup class="rb-lockupgroup">
                 <h1 class="rb-lockup alumni-lockup text-white">
-                 <?php echo wp_kses_post($banner_title); ?> || And
+                 <?php echo wp_kses_post($banner_title); ?>
                 </h1>
 
                 <p class="rb-lockup text-rb--font-size--xl normal-case">
