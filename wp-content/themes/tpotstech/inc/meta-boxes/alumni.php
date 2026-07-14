@@ -1447,3 +1447,121 @@ add_action(
     'save_post',
     'alumni_academic_save'
 );
+
+
+function alumni_news_meta_box() {
+
+    add_meta_box(
+        'alumni_news',
+        'Latest News Section',
+        'alumni_news_callback',
+        'page',
+        'normal',
+        'high'
+    );
+
+}
+add_action('add_meta_boxes', 'alumni_news_meta_box');
+
+
+function alumni_news_callback($post){
+
+    wp_nonce_field(
+        'alumni_news_nonce',
+        'alumni_news_nonce_field'
+    );
+
+    $title = get_post_meta($post->ID,'news_title',true);
+
+    $bg_color = get_post_meta($post->ID,'news_bg_color',true);
+
+    ?>
+
+    <table class="form-table">
+
+        <tr>
+
+            <th>
+                <label>News Section Title</label>
+            </th>
+
+            <td>
+
+                <input
+                    type="text"
+                    name="news_title"
+                    class="widefat"
+                    value="<?php echo esc_attr($title); ?>">
+
+            </td>
+
+        </tr>
+
+        <p>
+    <label><strong>News Section Background Color</strong></label><br>
+
+    <?php
+    $bg_color = get_post_meta($post->ID, 'news_bg_color', true);
+    ?>
+
+    <input
+        type="text"
+        id="news_bg_color"
+        name="news_bg_color"
+        value="<?php echo esc_attr($bg_color); ?>"
+        class="color-picker"
+        data-default-color="#f5f3ef">
+</p>
+
+    </table>
+
+    <?php
+
+}
+
+function alumni_news_save($post_id){
+
+    if(
+        !isset($_POST['alumni_news_nonce_field'])
+    ){
+        return;
+    }
+
+    if(
+        !wp_verify_nonce(
+            $_POST['alumni_news_nonce_field'],
+            'alumni_news_nonce'
+        )
+    ){
+        return;
+    }
+
+    if(
+        defined('DOING_AUTOSAVE') && DOING_AUTOSAVE
+    ){
+        return;
+    }
+
+    if(isset($_POST['news_title'])){
+
+        update_post_meta(
+            $post_id,
+            'news_title',
+            sanitize_text_field($_POST['news_title'])
+        );
+
+    }
+
+    if(isset($_POST['news_bg_color'])){
+
+        update_post_meta(
+            $post_id,
+            'news_bg_color',
+            sanitize_hex_color($_POST['news_bg_color'])
+        );
+
+    }
+    
+
+}
+add_action('save_post','alumni_news_save');

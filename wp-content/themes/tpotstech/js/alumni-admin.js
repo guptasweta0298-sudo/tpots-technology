@@ -354,4 +354,10 @@ $(document).on('click','.remove-academic',function(){
 });
 
 
+jQuery(document).ready(function ($) {
+
+    $('.color-picker').wpColorPicker();
+
+});
+
 

@@ -599,8 +599,13 @@ if (!empty($selected_ctas)) :
           </div>
         </div>
       </section>
+      <?php
+        $bg_color = get_post_meta(get_the_ID(), 'news_bg_color', true);
 
-      <div class="rb-block-cover bg-rb--color--light rb-news-homepage">
+        ?>
+
+
+      <div class="rb-block-cover bg-rb--color--light rb-news-homepage" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(237 237 233)'); ?>;">
         <div class="rb-block-container">
             <h2>Latest news</h2>
             <div class="rb-cardgroup sm:grid-cols-2">

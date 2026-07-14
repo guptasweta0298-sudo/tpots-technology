@@ -35,4 +35,31 @@ function allow_svg_upload($mimes) {
     return $mimes;
 }
 add_filter('upload_mimes', 'allow_svg_upload');
+
+
+
+function admin_color_picker_assets($hook){
+
+    global $post;
+
+    if ( !isset($post) ) {
+        return;
+    }
+
+    // Only load on Page edit screen
+    if ($post->post_type != 'page') {
+        return;
+    }
+
+    wp_enqueue_style('wp-color-picker');
+
+    wp_enqueue_script(
+        'my-admin-script',
+        get_template_directory_uri() . '/assets/js/admin.js',
+        array('jquery','wp-color-picker'),
+        null,
+        true
+    );
+}
+add_action('admin_enqueue_scripts','admin_color_picker_assets');
     
