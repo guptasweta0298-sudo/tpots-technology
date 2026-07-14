@@ -661,26 +661,7 @@ if (!empty($selected_ctas)) :
               endwhile;
               endif;
               ?>
-              <!-- <section class="rb-card bg-white rb-card--overlay-link rb-card__content--centered rb-card">
-                  <div class="rb-card__inner">
-                    <div class="rb-card__content">
-                        <div class="rb-card__meta">22 November 2025</div>
-                        <h3 class="rb-card__title">
-                          <a href="#">Top 5 benefits of being a #LivUniGrad</a>
-                        </h3>
-                    </div>
-                  </div>
-              </section>
-              <section class="rb-card bg-white rb-card--overlay-link rb-card__content--centered rb-card">
-                  <div class="rb-card__inner">
-                    <div class="rb-card__content">
-                        <div class="rb-card__meta">17 November 2025</div>
-                        <h3 class="rb-card__title">
-                          <a href="#">Sir Simon Rattle returns to Liverpool for performance at The Tung Auditorium</a>
-                        </h3>
-                    </div>
-                  </div>
-              </section> -->
+              
             </div>
         </div>
       </div>
