@@ -71,6 +71,8 @@
         $intro_btn_text    = get_post_meta(get_the_ID(),'intro_btn_text',true);
         $intro_btn_url     = get_post_meta(get_the_ID(),'intro_btn_url',true);
         $intro_btn_target  = get_post_meta(get_the_ID(),'intro_btn_target',true);
+            $bg_color = get_post_meta($post->ID, 'intro_bg_color', true);
+
 
         ?>
 
