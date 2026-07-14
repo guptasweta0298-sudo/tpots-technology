@@ -283,8 +283,8 @@ function alumni_intro_callback($post){
 
     <input
         type="text"
-        id="news_bg_color"
-        name="news_bg_color"
+        id="intro_bg_color"
+        name="intro_bg_color"
         value="<?php echo esc_attr($bg_color); ?>"
         class="color-picker"
         data-default-color="#f5f3ef">
@@ -322,12 +322,12 @@ function alumni_intro_save_meta($post_id){
 
     update_post_meta($post_id,'intro_btn_target',isset($_POST['intro_btn_target']) ? 1 : 0);
 
-    if(isset($_POST['news_bg_color'])){
+    if(isset($_POST['intro_bg_color'])){
 
         update_post_meta(
             $post_id,
-            'news_bg_color',
-            sanitize_hex_color($_POST['news_bg_color'])
+            'intro_bg_color',
+            sanitize_hex_color($_POST['intro_bg_color'])
         );
 
     }
