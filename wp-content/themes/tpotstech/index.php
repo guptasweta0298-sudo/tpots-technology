@@ -549,7 +549,7 @@ if (!empty($selected_ctas)) :
       $academic_image = wp_get_attachment_image_url($image_id, 'full');
       $academic_title = get_post_meta($post->ID, 'academic_title', true);
       $academic_description = get_post_meta($post->ID, 'academic_description', true);
-      $academic_text = get_post_meta($post->ID, 'academic_button_text', true);
+      $academic_button_text = get_post_meta($post->ID, 'academic_button_text', true);
       $academic_url = get_post_meta($post->ID, 'academic_button_url', true);
       $academic_target = get_post_meta($post->ID, 'academic_button_target', true);
     ?>
@@ -559,7 +559,7 @@ if (!empty($selected_ctas)) :
             <article>
               <picture class="rb-picture">
                 <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/XL.jpg"
+                  src="<?php echo $academic_image; ?>"
                   class="rb-picture__image aspect-3/2"
                   loading="lazy"
                   alt="Current vacancies"
@@ -567,19 +567,19 @@ if (!empty($selected_ctas)) :
               </picture>
               <div class="rb-content-flow alumni-col-2">
                 <header>
-                  <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+                  <h2><?php echo $academic_title; ?></h2>
 
                   <p class="rb-summary">
-                    Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.
+                    <?php echo $academic_description; ?>
                   </p>
                 </header>
                 <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
                 <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
                 <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
                 <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
-                <button class="uol-gallery-mode-btn uol-network-btn">
-                  Lorem ipsum
-                </button>
+                <a class="uol-gallery-mode-btn uol-network-btn" href="<?php echo $academic_url; ?>">
+                 <?php echo $academic_button_text; ?>
+                </a>
               </div>
               
             </article>
