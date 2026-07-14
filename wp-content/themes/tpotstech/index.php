@@ -76,7 +76,7 @@
 
         ?>
 
-      <section class="rb-block-cover alumni-about rb-block-cover--pt-0" style="background-color: <?php echo esc_attr($bg_color ?: 'rgb(237 237 233)'); ?>;">
+      <section class="rb-block-cover alumni-about rb-block-cover--pt-0" style="background-color: <?php echo esc_attr($bg_color ?: 'transparent'); ?>;">
         <nav class="rb-breadcrumbs rb-block-container" aria-label="Breadcrumbs">
           <ol class="rb-breadcrumbs__list">
             <li class="rb-breadcrumbs__list__home">
