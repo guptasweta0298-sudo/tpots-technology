@@ -573,10 +573,23 @@ if (!empty($selected_ctas)) :
                     <?php echo $academic_description; ?>
                   </p>
                 </header>
-                <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
-                <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
-                <p>Lorem ipsum dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipisc  dolor sit amet consectetur. Pharetra placerat ornare dui sit et adipiscing.</p>
+                <?php
+
+                  $items = get_post_meta(get_the_ID(), 'academic_items', true);
+                  if (!empty($items) && is_array($items)) :
+
+                      foreach ($items as $item) :
+
+                          $title   = !empty($item['title']) ? $item['title'] : '';
+                          $content = !empty($item['content']) ? $item['content'] : '';
+
+                 ?>
+                    <p><strong><?php echo esc_html($title); ?></strong></p>
+                    <p><?php echo wp_kses_post($content); ?></p>
+                  <?php
+                  endforeach;
+                  endif;
+                  ?>
                 <a class="uol-gallery-mode-btn uol-network-btn" href="<?php echo $academic_url; ?>" <?php echo $academic_target? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
                  <?php echo $academic_button_text; ?>
                 </a>
